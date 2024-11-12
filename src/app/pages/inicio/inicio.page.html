@@ -17,7 +17,7 @@
           <ng-container *ngIf="usuario.userName.trim() !== ''">
             ¡Bienvenido(a) {{ usuario.firstName }} {{ usuario.lastName }}!
           </ng-container>
-          <ng-container *ngIf="usuario.userName.trim() == ''">
+          <ng-container *ngIf="usuario.userName.trim() === ''">
             {{ 'DEBE_LLENAR_DATOS' | translate }}
           </ng-container>
         </h1>

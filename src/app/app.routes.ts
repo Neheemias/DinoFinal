@@ -53,6 +53,7 @@ export const routes: Routes = [
     path: 'leerqr',
     loadComponent: () => import('./pages/leerqr/leerqr.page').then( m => m.LeerqrPage)
   },
+  //
   {
     path: 'miclase',
     loadComponent: () => import('./pages/miclase/miclase.page').then( m => m.MiclasePage)

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
@@ -7,6 +7,8 @@ import { User } from 'src/app/model/user';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageComponent } from 'src/app/components/language/language.component';
+import { HeaderComponent } from "../../components/header/header.component";
+import { FooterComponent } from "../../components/footer/footer.component";
 
 @Component({
   selector: 'app-correo',
@@ -18,20 +20,22 @@ import { LanguageComponent } from 'src/app/components/language/language.componen
     //IonHeader, 
     //IonTitle, 
     //IonToolbar, 
-    CommonModule, 
+    CommonModule,
     FormsModule,
-    IonicModule, 
-    TranslateModule,         
-    LanguageComponent ]
+    IonicModule,
+    TranslateModule,
+    LanguageComponent,
+    HeaderComponent,
+    FooterComponent
+]
 })
-export class CorreoPage implements OnInit {
+export class CorreoPage  {
   
-  public email: string = '';
+   email: string = '';
 
   constructor(private router: Router) { }
 
-  ngOnInit() {
-  }
+  
 
   async validarRespuesta(): Promise<void> {
     const user = new User();

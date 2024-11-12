@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageComponent } from 'src/app/components/language/language.component';
@@ -13,24 +14,25 @@ import { User } from 'src/app/model/user';
   styleUrls: ['./correcto.page.scss'],
   standalone: true,
   imports: [
-    IonContent, 
-    IonHeader, 
-    IonTitle, 
-    IonToolbar, 
-    CommonModule, 
+    //IonContent, 
+    //IonHeader, 
+    //IonTitle, 
+    //IonToolbar,
+    CommonModule,
+    IonicModule, 
     FormsModule,
     TranslateModule,        // Permite usar el pipe 'translate'
     LanguageComponent, // Lista de idiomas
     HeaderComponent]
 })
-export class CorrectoPage implements OnInit {
+export class CorrectoPage  {
+user: any;
 
-  constructor(private usuario: User) { }
+  constructor(public usuario: User) { }
 
   secretAnswer = '';
 
-  ngOnInit() {
-  }
+  
 
    
 

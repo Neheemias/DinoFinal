@@ -1,10 +1,36 @@
+<app-header></app-header>
+
 <ion-content >
-  <ion-card>
-   <ion-card-subtitle>Ingresa tu correo</ion-card-subtitle>
-   <ionic-input type="text" [(ngModel)]="email" name= "email" placeholder="Ingresa tu correo"></ionic-input>
-   <a (click)="validarRespuesta()">Recuperar Contraseña</a>
- </ion-card>
+  
  
+ <ion-toolbar>
+  
+
+    <ion-item class="margin-bottom-6 float-left-landscape">
+      <ion-card-subtitle>Ingresa tu correo</ion-card-subtitle>
+      <ion-input 
+      label="{{ 'Login.Label.Email' | translate }}" 
+      labelPlacement="floating"
+      [(ngModel)]="email"
+      name="respuesta" 
+      placeholder="Ingresa tu correo">
+    </ion-input>
+      
+      
+      
+
+       
+     
+    </ion-item>
+
+    <ion-button  (click)="validarRespuesta()">
+      Recuperar contraseña
+    </ion-button>
+
+    
+ 
+</ion-toolbar>
+
  </ion-content>
  
  <ion-footer>

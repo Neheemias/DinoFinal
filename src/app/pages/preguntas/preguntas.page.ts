@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
@@ -29,7 +29,7 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
     HeaderComponent // CGV-Permite usar el componente Header
   ]
 })
-export class PreguntasPage implements OnInit {
+export class PreguntasPage  {
 
    public usuario!: User ;
    respuesta: string = '';
@@ -43,24 +43,21 @@ export class PreguntasPage implements OnInit {
         if (navigation && navigation.extras.state) {
           this.usuario = navigation.extras.state['usuario'];
         } else {
-          this.router.navigate(['/ingreso']);
+          this.router.navigate(['/login']);
         }
       });
      }
 
-  ngOnInit() {
-  }
+  
 
   public validarRespuesta(): void{
     if (this.usuario.secretAnswer === this.respuesta){
       showToast('Correo validado con éxito. Redirigiendo...');
-        this.router.navigate(['/orrecto'])
+        this.router.navigate(['/correcto'])
     } else {
       this.router.navigate(['/incorrecto']);
     }
   }
 
-  Salir(){
-    this.router.navigate(['/ingreso'])
-  }
+  
 }

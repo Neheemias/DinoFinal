@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
   standalone: true,
   imports: [TranslateModule]
 })
-export class WelcomeComponent implements OnInit {
+export class WelcomeComponent  {
 
   user: User = new User();
 
@@ -23,6 +23,6 @@ export class WelcomeComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  
 
 }

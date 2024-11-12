@@ -15,7 +15,7 @@
     "Login.Label.Password": "Contraseña",
     "Login.Placeholder.Password": "Ingresa aquí tu contraseña",
     "Login.Button.Login": "Ingresar",
-    "Login.Button.Signin": "Registrarse",
+    "Login.Button.Signin": "Ruta a Duoc", 
     "Login.Button.ForgotPassword": "Olvidé mi contraseña",
     "Login.Button.DarkMode": "Oscuro",
 

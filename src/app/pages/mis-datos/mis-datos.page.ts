@@ -30,7 +30,7 @@ export class MisDatosPage implements OnInit {
     private auth: AuthService,
     private api: APIClientService) 
   { 
-    /*
+    
     this.bd.userList.subscribe((usuarios) => {
       if (usuarios) {
         this.usuarios = usuarios;
@@ -43,35 +43,36 @@ export class MisDatosPage implements OnInit {
         console.log(this.usuario);
       }
     });
-    */
+    
   }
 
+  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit() {
 
   }
 
   guardarUsuario() {
-    // if (this.usuario.firstName.trim() === '') {
-    //   showToast('El usuario debe tener un nombre');
-    // } else {
-    //   console.log(this.usuario);
-    //   alert('en pagina nombre: '+this.usuario.firstName);
-    //   alert('en pagina nivelEducacional: '+this.usuario.educationalLevel.id);
-    //   alert('en pagina fecha: '+this.usuario.dateOfBirth);
-    //   this.bd.saveUser(this.usuario);
-    //   this.auth.saveAuthUser(this.usuario);
-    //   showToast('El usuario fue guardado correctamente');
-    // }
+    if (this.usuario.firstName.trim() === '') {
+       showToast('El usuario debe tener un nombre');
+     } else {
+      console.log(this.usuario);
+       alert('en pagina nombre: '+this.usuario.firstName);
+      alert('en pagina nivelEducacional: '+this.usuario.educationalLevel.id);
+       alert('en pagina fecha: '+this.usuario.dateOfBirth);
+      this.bd.saveUser(this.usuario);
+       this.auth.saveAuthUser(this.usuario);
+       showToast('El usuario fue guardado correctamente');
+     }
   }
 
   public actualizarNivelEducacional(event: any) {
-    // debugger
-    // this.usuario.educationalLevel 
-    //   = EducationalLevel.findLevel(event.detail.value)!;
+     debugger
+     this.usuario.educationalLevel 
+       = EducationalLevel.findLevel(event.detail.value)!;
   }
 
   onFechaNacimientoChange(event: any) {
-    //this.usuario.dateOfBirth = new Date(event.detail.value); // Convertir de ISO a Date
+    this.usuario.dateOfBirth = new Date(event.detail.value); // Convertir de ISO a Date
   }
 
 }
