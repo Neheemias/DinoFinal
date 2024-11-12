@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title #titulo size="large">
+      {{ 'System.Assistance.Title' | translate }}
+    </ion-title>
+    <ion-button fill="clear" size="large" icon-only (click)="Salir()">Salir</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <div class="centrar">
+    <div class="enmarcar ion-text-center" #page>
+
+      <ion-toolbar class="ion-padding-top">
+        <h1>
+          <ng-container *ngIf="usuario.userName.trim() !== ''">
+            ¡Bienvenido(a) {{ usuario.firstName }} {{ usuario.lastName }}!
+          </ng-container>
+          <ng-container *ngIf="usuario.userName.trim() == ''">
+            {{ 'DEBE_LLENAR_DATOS' | translate }}
+          </ng-container>
+        </h1>
+        <h2>{{ 'MIS_DATOS_PERSONALES' | translate }}</h2>
+      </ion-toolbar>
+      
+      <!-- Componente de formulario reutilizable -->
+      <app-user-input [(ngModel)]="usuario.userName" label="Cuenta" placeholder="Ej: atorres"></app-user-input>
+
+      <app-user-input [(ngModel)]="usuario.firstName" label="Nombre" placeholder="Ej: Ana"></app-user-input>
+
+      <app-user-input [(ngModel)]="usuario.lastName" label="Apellido" placeholder="Ej: Torres"></app-user-input>
+
+      <ion-item #itemEducacion class="font-size-12">
+        <ion-select [(ngModel)]="usuario.educationalLevel!.id"
+            (ionChange)="actualizarNivelEducacional($event)"
+            label="Educación" position="floating">
+          <ion-select-option *ngFor="let educationalLevel of listaNivelesEducacionales" 
+            [value]="educationalLevel.id">
+              {{ educationalLevel.id }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- Selección de fecha usando ion-datetime -->
+      <ion-item #itemFechaNacimiento class="ion-padding-bottom">
+        <ion-label position="floating">{{ 'FECHA_NACIMIENTO' | translate }}</ion-label>
+        <ion-datetime [(ngModel)]="usuario.dateOfBirth" display-format="DD/MM/YYYY"></ion-datetime>
+      </ion-item>
+
+      <!-- Botones de acción con expand="full" y mejoras de accesibilidad -->
+      <ion-button expand="full" shape="round" size="small" color="secondary" (click)="limpiarAnimandoDerIzq()">
+        {{ 'LIMPIAR' | translate }} (Izq Der)
+      </ion-button>
+
+      <ion-button expand="full" shape="round" size="small" color="tertiary" (click)="limpiarAnimandoRotacion()">
+        {{ 'LIMPIAR' | translate }} (Rotando)
+      </ion-button>
+
+      <ion-button expand="full" shape="round" size="small" color="primary" (click)="animarVueltaDePagina()">
+        {{ 'VUELTA_HOJA' | translate }}
+      </ion-button>
+
+      <ion-button expand="full" shape="round" size="small" color="success" (click)="mostrarDatosPersona()">
+        {{ 'VER_DATOS' | translate }}
+      </ion-button>
+
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary" class="ion-text-center">
+    
+    <!-- Botón Inicio -->
+    <ion-button shape="round" size="small" color="tertiary"
+        (click)="navegar()">
+      {{ 'INICIO' | translate }}
+    </ion-button>
+
+    <!-- Botón Asistencia (Deshabilitado si cuenta está vacía) -->
+    <ion-button shape="round" size="small" color="tertiary"
+        (click)="navegar_qr()" 
+        [disabled]="usuario.userName.trim() === ''" 
+        >
+      <ion-icon slot="start" name="qr-code"></ion-icon>
+      {{ usuario.userName.trim() === '' ? ('ASISTENCIA_DESHABILITADO' | translate) : ('ASISTENCIA' | translate) }}
+    </ion-button>
+
+    <!-- Botón Salir -->
+    <ion-button shape="round" size="small" color="tertiary"
+        (click)="navegar_inicio()">
+      <ion-icon slot="start" name="log-out"></ion-icon>
+      {{ 'SALIR' | translate }}
+    </ion-button>
+
+  </ion-toolbar>
+</ion-footer>
+

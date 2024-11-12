@@ -1,0 +1,37 @@
+<app-header></app-header>
+<ion-content [fullscreen]="true">
+  
+  <ion-toolbar>
+    <div class="ion-text-center margin-top-6" style="clear: both;">
+      <ion-title>Responde a  la pregunta secreta</ion-title>
+
+      <ion-item class="margin-bottom-6 float-left-landscape">
+        <div><h3>usuario</h3>
+        <div><h2>pregunta usuario</h2></div>
+
+        <ion-input 
+        label="{{ 'Login.Label.Email' | translate }}" 
+        labelPlacement="floating"
+        [(ngModel)]="respuesta"
+        name="respuesta" 
+        placeholder="{{ 'Login.Placeholder.Email' | translate }}">
+      </ion-input>
+        </div>
+        
+        
+
+         
+       
+      </ion-item>
+
+      <ion-button  (click)="validarRespuesta()">
+        Recuperar contraseña
+      </ion-button>
+
+      <ion-button  (click)="Salir()">
+        Salir
+      </ion-button>
+    </div>
+  </ion-toolbar>
+
+</ion-content>
