@@ -66,11 +66,11 @@ export class LoginPage implements ViewWillEnter {
   }
 
   registerNewUser() {
-
+    this.router.navigate(['/map']);
   }
 
   passwordRecovery() {
-    
+    this.router.navigate(['/correo']);   
   }
 
 }

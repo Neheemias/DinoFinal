@@ -12,7 +12,7 @@ import { convertDateToString, convertStringToDate } from '../tools/date-function
 })
 export class DatabaseService {
 
-  testUser1 = User.getNewUsuario(
+  testUser1 = User.getNewUsuario( //Error en esta seccion
     'atorres', 
     'atorres@duocuc.cl', 
     '1234', 

@@ -1,10 +1,11 @@
 import { EducationalLevel } from './educational-level';
-
 import { DatabaseService } from '../services/database.service';
 import { inject } from '@angular/core';
 import { convertDateToString } from '../tools/date-functions';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Person } from './person';
+
+
 
 export class User extends Person {
 
@@ -13,7 +14,8 @@ export class User extends Person {
   password = '';
   secretQuestion = '';
   secretAnswer = '';
-  db = inject(DatabaseService);
+ // db: DatabaseService = inject(DatabaseService); // Inyección tardía //Error en esta seccion
+  private db!: DatabaseService;
   image = '';
 
 

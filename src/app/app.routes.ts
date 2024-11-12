@@ -66,4 +66,6 @@ export const routes: Routes = [
     path: 'preguntas',
     loadComponent: () => import('./pages/preguntas/preguntas.page').then( m => m.PreguntasPage)
   },
+  
+
 ];
