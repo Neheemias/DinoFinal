@@ -99,6 +99,9 @@ export class AuthService {
     }
   }
 
+  
+
+
   async logout(): Promise<boolean> {
     try {
       const user = await this.readAuthUser();
@@ -116,36 +119,36 @@ export class AuthService {
     }
   }
 
-  // async readQrFromStorage(): Promise<string | null> {
-  //   try {
-  //     const qrData = await this.storage.get(this.storageQrCodeKey) as string | null;
-  //     this.qrCodeData.next(qrData);
-  //     return qrData;
-  //   } catch (error) {
-  //     showAlertError('AuthService.readQrFromStorage', error);
-  //     return null;
-  //   }
-  // }
+   async readQrFromStorage(): Promise<string | null> {
+     try {
+       const qrData = await this.storage.get(this.storageQrCodeKey) as string | null;
+     this.qrCodeData.next(qrData);
+       return qrData;
+     } catch (error) {
+       showAlertError('AuthService.readQrFromStorage', error);
+       return null;
+     }
+   }
 
-  // async saveQrToStorage(qrData: string): Promise<string | null> {
-  //   try {
-  //     await this.storage.set(this.storageQrCodeKey, qrData);
-  //     this.qrCodeData.next(qrData);
-  //     return qrData;
-  //   } catch (error) {
-  //     showAlertError('AuthService.saveQrToStorage', error);
-  //     return null;
-  //   }
-  // }
+   async saveQrToStorage(qrData: string): Promise<string | null> {
+     try {
+       await this.storage.set(this.storageQrCodeKey, qrData);
+       this.qrCodeData.next(qrData);
+       return qrData;
+     } catch (error) {
+       showAlertError('AuthService.saveQrToStorage', error);
+       return null;
+      }
+   }
 
-  // async deleteQrFromStorage(): Promise<boolean> {
-  //   try {
-  //     await this.storage.remove(this.storageQrCodeKey);
-  //     this.qrCodeData.next(null);
-  //     return true;
-  //   } catch (error) {
-  //     showAlertError('AuthService.deleteQrFromStorage', error);
-  //     return false;
-  //   }
-  // }
+    async deleteQrFromStorage(): Promise<boolean> {
+     try {
+       await this.storage.remove(this.storageQrCodeKey);
+       this.qrCodeData.next(null);
+       return true;
+     } catch (error) {
+       showAlertError('AuthService.deleteQrFromStorage', error);
+       return false;
+     }
+   }
 }

@@ -239,16 +239,20 @@ export class HomePage {
   }
 
 
-  navegar(){
-    this.router.navigate(['/inicio'])
-  }
-
-  navegar_inicio(){
-    this.router.navigate(['/ingreso'])
-  }
-
-  navegar_qr(){
+  qr(){
     this.router.navigate(['/leerqr'])
+  }
+
+  miClase(){
+    this.router.navigate(['/miclase'])
+  }
+
+  foro(){
+    this.router.navigate(['/foro'])
+  }
+
+  misDatos(){
+    this.router.navigate(['/mis-datos'])
   }
 
 

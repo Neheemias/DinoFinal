@@ -14,7 +14,7 @@ export class User extends Person {
   password = '';
   secretQuestion = '';
   secretAnswer = '';
- // db: DatabaseService = inject(DatabaseService); // Inyección tardía //Error en esta seccion
+  //db: DatabaseService = inject(DatabaseService); // Inyección tardía //Error en esta seccion
   private db!: DatabaseService;
   image = '';
 
@@ -22,6 +22,7 @@ export class User extends Person {
   constructor() {
     
     super();
+    
   }
 
   static getNewUsuario(

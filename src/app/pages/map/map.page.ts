@@ -149,8 +149,6 @@ export class MapPage implements OnInit {
     L.Marker.prototype.options.icon = iconDefault;
   }
 
-  navegarMisDatos() {
-    this.router.navigate(['/mis-datos']);
-  }
+  
 
 }

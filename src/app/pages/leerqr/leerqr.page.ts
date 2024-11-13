@@ -9,6 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { IonicModule } from '@ionic/angular';
 import { HeaderComponent } from 'src/app/components/header/header.component';
 import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { QrWebScannerComponent } from "../../components/qr-web-scanner/qr-web-scanner.component";
 
 @Component({
   selector: 'app-leerqr',
@@ -16,13 +17,19 @@ import { FooterComponent } from 'src/app/components/footer/footer.component';
   styleUrls: ['./leerqr.page.scss'],
   standalone: true,
   imports: [
-      CommonModule    // CGV-Permite usar directivas comunes de Angular
-    , FormsModule     // CGV-Permite usar formularios
-    , IonicModule     // CGV-Permite usar componentes de Ionic como IonContent, IonItem, etc.
-    , TranslateModule // CGV-Permite usar pipe 'translate'
-    , HeaderComponent // CGV-Permite usar el componente Header
-    , FooterComponent // CGV-Permite usar el componente Footer
-  ]
+    CommonModule // CGV-Permite usar directivas comunes de Angular
+    ,
+    FormsModule // CGV-Permite usar formularios
+    ,
+    IonicModule // CGV-Permite usar componentes de Ionic como IonContent, IonItem, etc.
+    ,
+    TranslateModule // CGV-Permite usar pipe 'translate'
+    ,
+    HeaderComponent // CGV-Permite usar el componente Header
+    ,
+    FooterComponent, // CGV-Permite usar el componente Footer
+    QrWebScannerComponent
+]
 })
 export class LeerqrPage implements OnInit {
 

@@ -31,14 +31,16 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
 })
 export class PreguntasPage  {
 
+
+
    public usuario!: User ;
    respuesta: string = '';
 
   constructor(
-    private activatedRouter: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private router: Router,
     ) {
-      this.activatedRouter.queryParams.subscribe ((params: Params) =>  {
+      this.activatedRoute.queryParams.subscribe ((params: Params) =>  {
                 const navigation = this.router.getCurrentNavigation();
         if (navigation && navigation.extras.state) {
           this.usuario = navigation.extras.state['usuario'];

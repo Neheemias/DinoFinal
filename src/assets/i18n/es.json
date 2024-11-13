@@ -1,5 +1,5 @@
 {
-    "AppName": "Angry-Dinosaurs",
+    "AppName": "Duoc Uc",
     "AuthorText": "Desarrollado por:",
     "Author": "Cristián Gómez Vega",
     "Language": "Idioma",
@@ -63,5 +63,7 @@
     "ThemePage.Form.DescriptionLabel": "Descripción",
     "ThemePage.Form.DescriptionPlaceholder": "Escribe aquí una descripción...",
     "ThemePage.Form.ToggleLabel": "Activar notificaciones",
-    "ThemePage.Form.CheckboxLabel": "Acepto los términos"
+    "ThemePage.Form.CheckboxLabel": "Acepto los términos",
+
+    "Quest.Placeholder.answer": "Respuesta"
 }

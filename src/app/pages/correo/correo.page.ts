@@ -9,6 +9,9 @@ import { TranslateModule } from '@ngx-translate/core';
 import { LanguageComponent } from 'src/app/components/language/language.component';
 import { HeaderComponent } from "../../components/header/header.component";
 import { FooterComponent } from "../../components/footer/footer.component";
+import { showToast } from 'src/app/tools/message-functions';
+import { DatabaseService } from 'src/app/services/database.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-correo',
@@ -33,26 +36,45 @@ export class CorreoPage  {
   
    email: string = '';
 
-  constructor(private router: Router) { }
+   // Inyección de Usuario
+   constructor(private router: Router ,
+
+    private bd: DatabaseService, private authService: AuthService
+   ) { }
+
+  ngOnInit() {}
 
   
 
-  async validarRespuesta(): Promise<void> {
-    const user = new User();
-    const usuarioEncontrado = await user.findByEmail(this.email); // Función async en User
+ async respuesta() {
+  if (!this.email) {
+      // Si no se ingresa un correo, mostramos un mensaje de error
+     showToast('Por favor, ingresa un correo electrónico.');
+      return;
+    }
 
-    if (!usuarioEncontrado) {
-      alert('EL CORREO NO EXISTE DENTRO DE LAS CUENTAS EXISTENTES');
-    } else {
-      const navigationExtras = {
-        state: {
-          usuario: usuarioEncontrado
-        }
-      };
-      await this.router.navigate(['/pregunta'], navigationExtras);
+    // Consultamos si el correo está registrado en la base de datos
+    try {
+      const correo = await this.bd.findUserByEmail(this.email);
+
+      if (this.email) {
+        // Si el correo es encontrado, redirigimos a la página que desees
+       showToast('Correo validado con éxito. Redirigiendo...');
+        this.router.navigate(['/preguntas'], {  // Ejemplo: redirigir a la página de contraseña
+          state: { correo: this.email }  // Pasar el correo a la siguiente página
+        });
+      } else {
+        // Si el correo no existe, mostramos un mensaje de error
+        showToast('El correo ingresado no está registrado.');
+        this.router.navigate(['/incorrecto']);  
+      }
+    } catch (error) {
+      // Manejo de errores si hay problemas con la consulta
+      console.error('Error al validar el correo:', error);
+      showToast('Hubo un problema al validar el correo. Intenta nuevamente.');
+     }
     }
   }
   
 
 
-}

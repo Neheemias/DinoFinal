@@ -4,7 +4,9 @@
       <app-language #selectLanguage></app-language>
     </div>
     <div class="show-in-landscape">
-      <h1 class="glow-text"> {{ 'AppName' | translate }} </h1>
+     <!-- <h1 class="glow-text"> <div class="centrar">
+        <img  src="/assets/images/duoc_transp.png">
+    </div> </h1> -->
     </div>
     <div slot="end" class="ion-margin">
       <ion-button shape="round" size="small" (click)="navigateTheme()">
@@ -17,14 +19,16 @@
 
 <ion-content [fullscreen]="true">
 
-  <img class="background-image" src="/assets/images/bronto-portrait-04.jpg">
+  <img class="background-image" src="/assets/images/pao.jpg">
   
-  <h1 class="glow-text show-in-portrait margin-top-6"> {{ 'AppName' | translate }} </h1>
+  <h1 class="glow-text"> <div class="centrar">
+    <img  src="/assets/images/duoc_transp.png">
+</div> </h1>
 
   <ion-card class="login-container transparent-input">
 
     <ion-card-header class="show-in-portrait">
-      <ion-card-title color="light" class="glow-text">
+      <ion-card-title color="light" class="color-black">
         <h4>
           <b>
             {{ 'Login.Title.Login' | translate }}

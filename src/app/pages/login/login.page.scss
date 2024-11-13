@@ -10,6 +10,11 @@
     transform: translateX(-50%) translateY(-70%);
 }
 
+ion-card {
+    background-color: white; /* Establece el fondo en blanco */
+    border-bottom: 2px solid gray; /* Opcional: agrega un borde inferior */
+  }
+
 @media screen and (orientation: portrait) {
     .login-container {
         width: 300px;

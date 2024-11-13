@@ -4,31 +4,50 @@
 
 <ion-content [fullscreen]="true">
 
-  <app-qrwebscanner 
-    *ngIf="selectedComponent === 'qrwebscanner'" 
-    (scanned)="webQrScanned($event)"
-    (stopped)="webQrStopped()">
-  </app-qrwebscanner >
-  
-  <app-welcome 
-    *ngIf="selectedComponent === 'welcome'">
-  </app-welcome>
-
-  <app-dinosaur 
-    *ngIf="selectedComponent === 'dinosaur'">
-  </app-dinosaur>
-
-  <app-forum 
-    *ngIf="selectedComponent === 'forum'">
-  </app-forum>
-
-  
-
-  <div>
-    <h3> Cuenta {{ usuario.userName }} </h3>
-  </div>
+  <ion-card-content>  
+    <nav class="navbar bg-body-tertiary">
+      
+      <div style="display: flex;">
+        <div style="flex: 1;">
+          <ion-button class="navbar-brand" (click)="qr()">QR</ion-button>
+      </div>
+        <div style="flex: 20;">
+          <ion-button class="navbar-brand" (click)="miClase()">Mi Clase</ion-button> 
+        </div>
+        <div style="flex: 9;">
+          <ion-button class="navbar-brand" (click)="foro()">Foro</ion-button>
+        </div>
+        <div style="flex: 800;">
+          <ion-button class="navbar-brand" (click)="misDatos()">Mis Datos</ion-button>
+        </div>
+    </div>
+    </nav>
     
-  
+  <app-qrwebscanner 
+  *ngIf="selectedComponent === 'qrwebscanner'" 
+  (scanned)="webQrScanned($event)"
+  (stopped)="webQrStopped()">
+</app-qrwebscanner >
+
+<app-welcome 
+  *ngIf="selectedComponent === 'welcome'">
+</app-welcome>
+
+<app-dinosaur 
+  *ngIf="selectedComponent === 'dinosaur'">
+</app-dinosaur>
+
+<app-forum 
+  *ngIf="selectedComponent === 'forum'">
+</app-forum>
+
+
+      
+    
+</ion-card-content>
+
+
 
 </ion-content>
 
+<app-footer></app-footer>

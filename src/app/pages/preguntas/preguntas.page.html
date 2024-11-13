@@ -6,22 +6,21 @@
       <ion-title>Responde a  la pregunta secreta</ion-title>
 
       <ion-item class="margin-bottom-6 float-left-landscape">
-        <div><h3>usuario</h3>
-        <div><h2>pregunta usuario</h2></div>
-
-        <ion-input 
-        label="{{ 'Login.Label.Email' | translate }}" 
-        labelPlacement="floating"
-        [(ngModel)]="respuesta"
-        name="respuesta" 
-        placeholder="{{ 'Login.Placeholder.Email' | translate }}">
-      </ion-input>
+        
+        <div>
+          pregunta
         </div>
         
-        
-
-         
-       
+      </ion-item>
+      <ion-item>
+        <ion-input 
+      label="{{ 'Quest.Placeholder.answer' | translate }}" 
+      labelPlacement="floating"
+      [(ngModel)]="respuesta"
+      name="respuesta" 
+      placeholder="{{ 'Quest.Placeholder.answer' | translate }}">
+    </ion-input>
+      
       </ion-item>
 
       <ion-button  (click)="validarRespuesta()">
