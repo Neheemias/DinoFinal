@@ -57,6 +57,10 @@ export class User extends Person {
      return await this.db.findUser(userName, password);
    }
 
+   async findAnswer(secretAnswer: string): Promise<User | undefined> {
+    return await this.db.findAnswer(secretAnswer);
+  }
+
    async findByUserName(userName: string): Promise<User | undefined>  {
      return await this.db.findUserByUserName(userName);
    }

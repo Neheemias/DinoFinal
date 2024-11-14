@@ -26,10 +26,11 @@ import { User } from 'src/app/model/user';
     HeaderComponent]
 })
 export class CorrectoPage  {
-user: any;
+  public usuario!: User ;
 
-  constructor(public usuario: User) { }
+  constructor(public user: User) { }
 
+  
   secretAnswer = '';
 
   

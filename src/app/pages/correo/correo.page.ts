@@ -42,7 +42,7 @@ export class CorreoPage  {
     private bd: DatabaseService, private authService: AuthService
    ) { }
 
-  ngOnInit() {}
+  
 
   
 

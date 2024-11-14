@@ -235,6 +235,17 @@ export class DatabaseService {
     }
   }
 
+  async findAnswer(secretAnswer: string): Promise<User | undefined> {
+    try {
+      const q = 'SELECT * FROM USER WHERE secretAnswer=?;';
+      const rows = (await this.db.query(q, [secretAnswer])).values;
+      return rows? this.rowToUser(rows[0]) : undefined;
+    } catch (error) {
+      showAlertError('DataBaseService.secretAnswer', error);
+      return undefined;
+    }
+  }
+
   async findUserByUserName(userName: string): Promise<User | undefined> {
     try {
       const q = 'SELECT * FROM USER WHERE userName=?;';

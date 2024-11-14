@@ -30,5 +30,6 @@ export class FooterComponent {
   sendClickEvent($event: any) {
     this.footerClick.emit(this.selectedButton);
   }
+  
 
 }
